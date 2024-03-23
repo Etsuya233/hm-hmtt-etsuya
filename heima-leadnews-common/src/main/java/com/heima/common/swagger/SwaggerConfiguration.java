@@ -1,5 +1,6 @@
 package com.heima.common.swagger;
 
+import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -15,6 +16,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 // 开启Swagger2注解
 @EnableSwagger2
+@EnableKnife4j
 public class SwaggerConfiguration {
 
 	// 定义一个Bean，用于配置Swagger Docket
@@ -23,6 +25,7 @@ public class SwaggerConfiguration {
 		return new Docket(DocumentationType.SWAGGER_2)
 				// 设置API信息
 				.apiInfo(buildApiInfo())
+				.groupName("1.0")
 				// 选择扫描的API(Controller)基础包
 				.select()
 				.apis(RequestHandlerSelectors.basePackage("com.heima"))
