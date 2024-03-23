@@ -7,7 +7,11 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
-        namespace: hmld
+        namespace: hmtt
       config:
         server-addr: localhost:8848
         file-extension: yml
+        namespace: hmtt
+logging:
+  level:
+    sql: debug

@@ -4,10 +4,10 @@ import com.heima.model.common.dtos.ResponseResult;
 import com.heima.model.user.dtos.LoginDTO;
 import com.heima.user.service.ApUserService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-@RestController("/api/v1/login")
+@RestController()
+@RequestMapping("/api/v1/login")
 public class ApUserLoginController {
 
 	private final ApUserService apUserService;
@@ -17,7 +17,7 @@ public class ApUserLoginController {
 	}
 
 	@PostMapping("/login_auth")
-	public ResponseResult login(LoginDTO loginDTO){
+	public ResponseResult login(@RequestBody LoginDTO loginDTO){
 		return apUserService.login(loginDTO);
 	}
 }
